@@ -42,7 +42,7 @@ fun LionSchoolScreen() {
         ) {
             Spacer(modifier = Modifier.height(60.dp))
             Text(
-                text = "Saturn School",
+                text = stringResource(id = R.string.app_name),
                 fontSize = 70.sp,
                 color = Color(227, 53, 255),
                 modifier = Modifier.width(300.dp),
@@ -75,7 +75,7 @@ fun LionSchoolScreen() {
             ) {
                 Row() {
                     Text(
-                        text = "Entrar",
+                        text = stringResource(id = R.string.button),
                         fontSize = 18.sp,
                         color = Color.White,
                         fontWeight = FontWeight(900)
