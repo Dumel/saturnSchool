@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Saturn School</string>
     <string name="button">Entrar</string>
+    <string name="options">Opções de curso</string>
+    <string name="ds">DS</string>
+    <string name="redes">REDES</string>
 </resources>

@@ -1,10 +1,9 @@
 package br.senai.sp.jandira.lionschool
 
-import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
@@ -12,7 +11,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -22,32 +20,26 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import br.senai.sp.jandira.lionschool.ui.theme.LionSchoolTheme
 
-class MainActivity : ComponentActivity() {
+class DsEndPoints : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             LionSchoolTheme {
-                LionSchoolScreen()
+                lionSchoolTurmaDs()
             }
         }
     }
-
-
 }
 
-@SuppressLint("SuspiciousIndentation")
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun LionSchoolScreen() {
-
-    val context = LocalContext.current
-
+fun lionSchoolTurmaDs(){
     Surface(modifier = Modifier.fillMaxSize()) {
         Column(
             modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Spacer(modifier = Modifier.height(60.dp))
+            Spacer(modifier = Modifier.height(5.dp))
             Text(
                 text = stringResource(id = R.string.app_name),
                 fontSize = 70.sp,
@@ -56,46 +48,38 @@ fun LionSchoolScreen() {
                 textAlign = TextAlign.Center
             )
 
-            Spacer(modifier = Modifier.height(55.dp))
-            Icon(
-                painter = painterResource(id = R.drawable.saturno),
-                contentDescription = "Saturno",
-                tint = Color(red = 227, green = 53, blue = 255),
-                modifier = Modifier.size(150.dp)
-            )
 
-            Spacer(modifier = Modifier.height(100.dp))
-            Button(
+
+            Card(
                 modifier = Modifier
-                    .width(150.dp)
-                    .height(64.dp),
-                colors = ButtonDefaults.buttonColors(Color(207, 1, 240)),
-                onClick = {
-
-                          val intent = Intent(context, CursoActivity::class.java)
-                            context.startActivity(intent)
-
-                          //val intent = Intent(context, CursoActivity::class.java)
-                            //context.startActivity(intent)
-//
-
-
-                },
+                    .width(180.dp)
+                    .height(300.dp)
+                    .padding(top = 40.dp, start = 15.dp),
+                backgroundColor =  Color(239, 32, 240),
                 shape = RoundedCornerShape(16.dp)
             ) {
-                Row() {
+
+
+                Column(modifier = Modifier.fillMaxHeight(), verticalArrangement = Arrangement.SpaceEvenly, horizontalAlignment = Alignment.CenterHorizontally) {
                     Text(
-                        text = stringResource(id = R.string.button),
-                        fontSize = 18.sp,
+                        text = stringResource(id = R.string.ds),
+                        fontSize = 35.sp,
                         color = Color.White,
-                        fontWeight = FontWeight(900)
+                        fontWeight = FontWeight(1000)
                     )
+
+                    Image(
+                        painter = painterResource(id = R.drawable.ds),
+                        contentDescription = "ds",
+                        modifier = Modifier.size(150.dp)
+                    )
+
+
+
                 }
+
             }
+
         }
     }
 }
-
-
-
-

@@ -1,8 +1,11 @@
 package br.senai.sp.jandira.lionschool
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
@@ -10,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -33,27 +37,42 @@ class CursoActivity : ComponentActivity() {
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun lionSchoolCursos(){
+
+    val context = LocalContext.current
+
     Surface(modifier = Modifier.fillMaxSize()) {
         Column(
             modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(5.dp))
             Text(
                 text = stringResource(id = R.string.app_name),
                 fontSize = 70.sp,
-                color = Color(227, 53, 255),
+                color = Color(239, 32, 240),
                 modifier = Modifier.width(300.dp),
                 textAlign = TextAlign.Center
             )
 
             Spacer(modifier = Modifier.height(55.dp))
-            Icon(
-                painter = painterResource(id = R.drawable.saturno),
-                contentDescription = "Saturno",
-                tint = Color(red = 227, green = 53, blue = 255),
-                modifier = Modifier.size(150.dp)
-            )
+            Card(
+                modifier = Modifier
+                    .width(250.dp)
+                    .height(80.dp),
+                    backgroundColor =  Color(239, 32, 240),
+                    shape = RoundedCornerShape(50.dp)
+            ) {
+                Column(modifier = Modifier.padding(top = 25.dp, start = 60.dp)) {
+
+                        Text(
+                            text = stringResource(id = R.string.options),
+                            fontSize = 18.sp,
+                            color = Color.White,
+                            fontWeight = FontWeight(900),
+
+                        )
+                }
+            }
 
           Row (
               modifier = Modifier
@@ -66,24 +85,34 @@ fun lionSchoolCursos(){
                       .width(150.dp)
                       .height(300.dp)
                       .padding(top = 90.dp, start = 15.dp),
-                  colors = ButtonDefaults.buttonColors(Color(207, 1, 240)),
+                  colors = ButtonDefaults.buttonColors(Color(239, 32, 240)),
                   onClick = {
 
-//                            val intent = Intent(context, LoggedActivity::class.java)
-//                            context.startActivity(intent)
+                            val intent = Intent(context, DsEndPoints::class.java)
+                            context.startActivity(intent)
 //
 
 
                   },
                   shape = RoundedCornerShape(16.dp)
               ) {
-                  Row() {
-                      Text(
-                          text = stringResource(id = R.string.button),
-                          fontSize = 18.sp,
-                          color = Color.White,
-                          fontWeight = FontWeight(900)
-                      )
+
+
+                      Column(modifier = Modifier.fillMaxHeight(), verticalArrangement = Arrangement.SpaceEvenly, horizontalAlignment = Alignment.CenterHorizontally) {
+                          Text(
+                              text = stringResource(id = R.string.ds),
+                              fontSize = 35.sp,
+                              color = Color.White,
+                              fontWeight = FontWeight(1000)
+                          )
+
+                          Image(
+                              painter = painterResource(id = R.drawable.ds),
+                              contentDescription = "ds",
+                              modifier = Modifier.size(150.dp)
+                          )
+
+
 
                   }
 
@@ -94,7 +123,7 @@ fun lionSchoolCursos(){
                       .width(230.dp)
                       .height(300.dp)
                       .padding(top = 90.dp, start = 90.dp),
-                  colors = ButtonDefaults.buttonColors(Color(207, 1, 240)),
+                  colors = ButtonDefaults.buttonColors(Color(239, 32, 240)),
                   onClick = {
 
 //                            val intent = Intent(context, LoggedActivity::class.java)
@@ -105,15 +134,22 @@ fun lionSchoolCursos(){
                   },
                   shape = RoundedCornerShape(16.dp)
               ) {
-                  Row() {
+
+                  Column(modifier = Modifier.fillMaxHeight(), verticalArrangement = Arrangement.SpaceEvenly, horizontalAlignment = Alignment.CenterHorizontally){
                       Text(
-                          text = stringResource(id = R.string.button),
-                          fontSize = 18.sp,
+                          text = stringResource(id = R.string.redes),
+                          fontSize = 30.sp,
                           color = Color.White,
-                          fontWeight = FontWeight(900)
+                          fontWeight = FontWeight(1000)
                       )
 
+                      Image(
+                          painter = painterResource(id = R.drawable.rede),
+                          contentDescription = "rede",
+                          modifier = Modifier.size(150.dp)
+                      )
                   }
+
 
               }
           }
