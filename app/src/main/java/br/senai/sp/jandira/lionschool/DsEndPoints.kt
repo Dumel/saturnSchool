@@ -47,38 +47,60 @@ fun lionSchoolTurmaDs(){
                 modifier = Modifier.width(300.dp),
                 textAlign = TextAlign.Center
             )
-
-
-
-            Card(
-                modifier = Modifier
-                    .width(180.dp)
-                    .height(300.dp)
-                    .padding(top = 40.dp, start = 15.dp),
-                backgroundColor =  Color(239, 32, 240),
-                shape = RoundedCornerShape(16.dp)
+            Spacer(modifier = Modifier.height(50.dp))
+            Row(
+                modifier = Modifier.fillMaxWidth()
             ) {
+                Button(modifier = Modifier
+                    .width(170.dp)
+                    .height(50.dp)
+                    .padding(start = 50.dp),
+                    colors = ButtonDefaults.buttonColors(Color(239, 32, 240)),
+                    onClick = { /*TODO*/ }) {
 
-
-                Column(modifier = Modifier.fillMaxHeight(), verticalArrangement = Arrangement.SpaceEvenly, horizontalAlignment = Alignment.CenterHorizontally) {
                     Text(
-                        text = stringResource(id = R.string.ds),
-                        fontSize = 35.sp,
+                        text = stringResource(id = R.string.todosDs),
+                        fontSize = 15.sp,
                         color = Color.White,
                         fontWeight = FontWeight(1000)
                     )
 
-                    Image(
-                        painter = painterResource(id = R.drawable.ds),
-                        contentDescription = "ds",
-                        modifier = Modifier.size(150.dp)
-                    )
-
-
-
                 }
-
             }
+
+            
+
+
+
+//            Card(
+//                modifier = Modifier
+//                    .width(180.dp)
+//                    .height(300.dp)
+//                    .padding(top = 40.dp, start = 15.dp),
+//                backgroundColor =  Color(239, 32, 240),
+//                shape = RoundedCornerShape(16.dp)
+//            ) {
+//
+//
+//                Column(modifier = Modifier.fillMaxHeight(), verticalArrangement = Arrangement.SpaceEvenly, horizontalAlignment = Alignment.CenterHorizontally) {
+//                    Text(
+//                        text = stringResource(id = R.string.ds),
+//                        fontSize = 35.sp,
+//                        color = Color.White,
+//                        fontWeight = FontWeight(1000)
+//                    )
+//
+//                    Image(
+//                        painter = painterResource(id = R.drawable.ds),
+//                        contentDescription = "ds",
+//                        modifier = Modifier.size(150.dp)
+//                    )
+//
+//
+//
+//                }
+//
+//            }
 
         }
     }
